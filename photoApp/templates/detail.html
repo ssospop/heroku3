@@ -1,0 +1,20 @@
+<!-- continue reading 버튼을 누르면 자세히 보여줄 것임-->
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<!-- 내용이 들어갈 것-->
+
+        <h3>{{ portfolios.title }}</h3>
+        <img width="400" src="{{ portfolios.image.url }}" >
+        <p> {{ portfolios.description }}</p>
+        <a href="{% url 'portfolio' %}">Back</a>
+
+{% endblock %}
+
+</body>
+</html>

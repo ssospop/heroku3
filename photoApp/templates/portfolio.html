@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+ <div class="container">
+  <div class="row mb-2">
+  <!--여기 부터가 카드-->
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">Journey1</h3>
+          <div class="card-body"></div>
+          <p class="card-text mb-auto">포트폴리오를 소개합니다</p>
+        </div>
+            <img src="{% static 'TheWorldBeyondYourHead.jpg' %}" width=280 alt="초기 사진">
+      </div>
+    </div>
+
+
+    {% for portfolio in portfolios.all %} 
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{ portfolio.title }}</h3>
+          <div class="card-body"></div>
+          <p class="card-text mb-auto"> {{ portfolio.summary }}</p>
+          <a href="{% url 'detail' portfolio.id %}" class="stretched-link">Continue reading</a>
+        </div>
+            <img src="{{ portfolio.image.url }}" width=280 >
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+</body>
+</html>

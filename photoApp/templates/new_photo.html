@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<br>
+<div class="container">
+	<form method='post' action="{% url 'create_photo' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	  <h4>제목: </h4>
+	  <input type="text" name="title">
+	  <br>
+	  <br>
+	  <h4>본문: </h4>
+	  <textarea cols=40 rows=10 name="description"></textarea>
+      <input type="file" name="image">
+      <br>
+	  <br>
+	  <input class="btn btn-dark" type="submit" value="제출하기">
+  </form>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
